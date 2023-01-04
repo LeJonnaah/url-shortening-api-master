@@ -1,0 +1,49 @@
+.shorten-link {
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1em;
+        margin-bottom: 40px;
+        border-radius: 10px;
+        text-align: center;
+        background: url('../images/bg-shorten-desktop.svg') no-repeat;
+        background-size: cover;
+        background-color: #3a3053;
+        width: 90%;
+        margin: 0 auto 60px;
+    }
+
+    &__input {
+        width: 100%;
+        padding: 16px;
+        margin-bottom: 16px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        font-size: 1em;
+        font-weight: 700;
+        color: #9d9aa2;
+        background-color: #fff;
+    }
+
+    &__button {
+        width: 100%;
+        padding: 16px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        font-size: 1em;
+        font-weight: 700;
+        color: #fff;
+        background-color: #2acfcf;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background-color: #23a6a6;
+        }
+    }
+}

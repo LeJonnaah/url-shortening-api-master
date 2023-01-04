@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+// 1. Configuration and helpers
+
+
+// 2. Vendors
+
+
+// 3. Base stuff
+@use "base/reset";
+@use "base/typography";
+
+// 4. Layout-related sections
+@use "layout/main-footer";
+
+// 5. Components
+@use "components/hamburger-button";
+@use "components/information-box";
+@use "components/shorten-link";
+@use "components/information-card";
+@use "components/get-started-button";
+
+// 6. Page-specific styles
+
+
+// 7. Themes

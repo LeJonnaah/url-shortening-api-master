@@ -1,0 +1,22 @@
+.information {
+
+    &__container {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 0.25rem;
+        text-align: center;
+    }
+
+    &__title {
+        font-size: 1.5em;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    &__text {
+        font-size: 0.8em;
+        margin-bottom: 10px;
+        color: #9d9aa2;
+        line-height: 1.3;
+    }
+}
