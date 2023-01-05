@@ -12,12 +12,35 @@
     width: 90%;
     margin: 0 auto 40px;
 
+    @media (min-width: 768px) {
+        width: 250px;
+        height: 250px;
+        text-align: left;
+    }
+
+    @media (min-width: 1024px) {
+        width: 400px;
+    }
+    
+    &__container {
+        
+        @media (min-width: 768px) {
+            display: flex;
+            width: 90%;
+            flex-direction: row;
+            margin: auto;
+        }
+    }
+
     &__title {
         font-size: 1.2em;
         font-weight: 700;
         margin: 40px 0 20px;
-    }
 
+        @media (min-width: 768px) {
+            text-align: left;
+        }
+        } 
     &__text {
         font-size: 0.8em;
         margin-bottom: 10px;
@@ -30,6 +53,14 @@
         width: 30px;
         height: 30px;
         top: -15px;
+
+        @media (min-width: 768px) {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top: -15px;
+            left: 37px;
+        }
     }
 
     &::before {
@@ -43,5 +74,13 @@
         top: -25px;
         left: 50%;
         transform: translateX(-50%);
+        
+        @media (min-width: 768px) {
+            top: -25px;
+            left: 25px;
+            transform: translateX(0);
+            width: 75px;
+            height: 75px;
+        }
     }
 }

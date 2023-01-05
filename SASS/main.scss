@@ -11,14 +11,17 @@
 @use "base/typography";
 
 // 4. Layout-related sections
+@use "layout/main-header";
 @use "layout/main-footer";
 
 // 5. Components
-@use "components/hamburger-button";
 @use "components/information-box";
 @use "components/shorten-link";
 @use "components/information-card";
 @use "components/get-started-button";
+@use "components/offer-box";
+@use "components/copy-link";
+@use "components/copied-links";
 
 // 6. Page-specific styles
 

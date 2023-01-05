@@ -1,6 +1,7 @@
 .shorten-link {
 
     &__container {
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -14,6 +15,12 @@
         background-color: #3a3053;
         width: 90%;
         margin: 0 auto 60px;
+
+        @media (min-width: 768px) {
+            flex-direction: row;
+            gap: 20px;
+            padding: 40px
+        }
     }
 
     &__input {
@@ -27,6 +34,11 @@
         font-weight: 700;
         color: #9d9aa2;
         background-color: #fff;
+
+        @media (min-width: 768px) {
+            width: 70%;
+            margin: 0;
+        }
     }
 
     &__button {
@@ -41,6 +53,11 @@
         background-color: #2acfcf;
         cursor: pointer;
         transition: all 0.3s ease-in-out;
+
+        @media (min-width: 768px) {
+            width: 30%;
+            margin: 0;
+        }
 
         &:hover {
             background-color: #23a6a6;

@@ -14,6 +14,12 @@
     border: none;
     margin-bottom: 50px;
 
+    @media (min-width: 768px) {
+    width: 150px;
+    padding: 10px;
+
+    }
+
     &:hover {
         background-color: #2ac1c1;
     }

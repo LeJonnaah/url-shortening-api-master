@@ -13,15 +13,24 @@ async function shortenLink() {
     const response = await fetch(url);
     const data = await response.json();
     console.log(data);
-    Swal.fire({
-        icon: "success",
-        title: "Your link has been shortened!",
-        text: "Here is your shortened link:",
-        footer: `
-        <a href='${data.result.full_short_link}'>${data.result.full_short_link}</a>
-        <button class='copy-link'>Copy</button>
-        `,
-    });
+    
+    if (data.ok) {
+        Swal.fire({
+            icon: "success",
+            title: "Your link has been shortened!",
+            text: "Here is your shortened link:",
+            footer: `
+            <a class='copy-link__link' href='${data.result.full_short_link}'>${data.result.full_short_link}</a>
+            <button class='copy-link__button'>Copy</button>
+            `,
+        });
+        inputShortenLink.value = "";
+        const copiedLinks = copiedLinksStorage();
+        copiedLinks.push(link.textContent);
+        localStorage.setItem("copiedLinks", JSON.stringify(copiedLinks));
+    } else {
+        Swal.fire("Something went wrong!");
+    }
 }
 
 const copyContent = async (text) => {
@@ -34,19 +43,54 @@ const copyContent = async (text) => {
 };
 
 
+const copiedLinksStorage = () => {
+    const copiedLinks = [];
+    const copiedLinksString = localStorage.getItem("copiedLinks");
+    if (copiedLinksString) {
+        return JSON.parse(copiedLinksString);
+    } else {
+        return copiedLinks;
+    }
+};
+
+const displayCopiedLinks = () => {
+    const copiedLinks = copiedLinksStorage();
+    const copiedLinksContainer = document.querySelector(".copied-links__container");
+    copiedLinksContainer.innerHTML = "";
+    copiedLinks.forEach((link) => {
+        copiedLinksContainer.innerHTML += `
+        <div class="copied-links__group">
+            <a class='copied-links__link' href="${link}">${link}</a>
+            <button class="copy-link__button">Copy</button>
+        </div>
+        `;
+    });
+};
+
 // 3. Events
 
 buttonShortenLink.addEventListener("click", () => {
     if (inputShortenLink.value === "") {
-        Swal.fire("Any fool can use a computer");
+        Swal.fire("Please enter a link!");
     } else {
         shortenLink();
     }
 });
 
+inputShortenLink.addEventListener("click", (e) => {
+    displayCopiedLinks();
+    
+    // const copiedLinks = copiedLinksStorage();
+    // if (copiedLinks.length > 0) {
+    //     const copiedLinksContainer = document.querySelector(".copied-links__container");
+    //     copiedLinksContainer.style.display = "flex";
+    // }
+});
+
+
 document.addEventListener("click", (e) => {
-    if (e.target.classList.contains("copy-link")) {
-        const text = e.target.previousElementSibling.textContent;
-        copyContent(text);
+    if (e.target.classList.contains("copy-link__button")) {
+        const link = e.target.previousElementSibling;
+        copyContent(link.textContent);
     }
 });
