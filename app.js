@@ -1,5 +1,4 @@
 const express = require('express')
-const Swal = require('sweetalert2')
 
 const app = express()
 const port = 3000
