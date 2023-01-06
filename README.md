@@ -21,4 +21,4 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: (https://spangle-cloudy-pamphlet.glitch.me/)
+- Live Site URL: (https://foil-mud-alvarezsaurus.glitch.me/)
